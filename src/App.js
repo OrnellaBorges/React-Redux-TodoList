@@ -51,8 +51,8 @@ export default function App() {
             <article>
                 <TasksHeader tasks={tasks} />
 
-                {/*      la liste des taches reçoit en props la liste des taches 
-                une founction qui permet de mettre a our l'at d'une tache 
+                {/* le composant qui affiche la liste des taches reçoit en props la liste des taches, 
+                une fonction qui permet de maj une tache  si elle est réalisé ou non 
                 et une autre fonction qui permet de supprimer une task */}
                 <TasksList
                     tasks={tasks}
@@ -60,6 +60,7 @@ export default function App() {
                     deleteTask={deleteTask}
                 />
                 <footer>
+                    {/* ce composant reçoit en props la fonction permettant d'ajouter une tache*/}
                     <TaskForm addTask={addTask} />
                 </footer>
             </article>
