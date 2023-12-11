@@ -9,7 +9,7 @@ const TasksList = (props) => {
         //Pour eviter le PROPS DRELING=  passage des props d'un composant parent elogné à un composant enfant eloigné
         // on met en place redux pour eviter l'utilisation excessive des props
         // dans une petite apli ca va mais dans une grosse ça peut devenir pb !
-        //c'est pour ça on utilise REDUX
+        //c'est pour ça on utilise REDUX !
 
         <>
             {props.tasks.map((t) => (
