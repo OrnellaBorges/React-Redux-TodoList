@@ -6,7 +6,7 @@ const TasksList = (props) => {
         //j'appel le composant taskItem qui pour chaque task va creer une ligne de tache
         // il doit lui meme recevoir les fonctions toggle et delete !
 
-        //Pour eviter le PROPS DRELING=  passage des props d'un composant parent elogné à un composant enfant eloigné
+        //Pour eviter le PROPS DRELING=  passage des props d'un composant parent eloigné à un composant enfant eloigné
         // on met en place redux pour eviter l'utilisation excessive des props
         // dans une petite apli ca va mais dans une grosse ça peut devenir pb !
         //c'est pour ça on utilise REDUX !

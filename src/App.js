@@ -19,7 +19,7 @@ export default function App() {
             done: false,
         };
 
-        setTasks([...tasks, newTask]);
+        setTasks([...tasks, newTask]); // une copy du tableau initiale et on ajoute la nouvelle data
     };
 
     const deleteTask = (id) => {
@@ -36,7 +36,7 @@ export default function App() {
         const index = tasks.findIndex((t) => t.id === id);
         // 3 - faire une copy de la liste originale pour ne pas modifier directement
         const taskCopy = { ...realTask };
-        const tasksListCopy = [...tasks];
+        const tasksListCopy = [...tasks]; // les ... permettent de creer une copy de task
         // si c'est true on change a false vice et versa don change la valeur de la clé done
         taskCopy.done = !taskCopy.done;
 
