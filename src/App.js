@@ -5,7 +5,8 @@ import TasksHeader from "./TasksHeader";
 import TasksList from "./TasksList";
 
 export default function App() {
-    //1- on déclare un tableau de tache dans un state
+    // AVANT REDUX :
+    /*     //1- on déclare un tableau de tache dans un state
     const [tasks, setTasks] = useState([
         { id: 1, text: "Faire les courses", done: false },
         { id: 2, text: "Ménage !", done: true },
@@ -45,7 +46,7 @@ export default function App() {
         // on fait appel au mutateur pour maj le state
         setTasks(tasksListCopy);
     };
-
+ */
     return (
         <div className="container">
             <article>
@@ -54,10 +55,11 @@ export default function App() {
                 {/* le composant qui affiche la liste des taches reçoit en props la liste des taches, 
                 une fonction qui permet de maj une tache  si elle est réalisé ou non 
                 et une autre fonction qui permet de supprimer une task */}
+                {/* avec redux je n'ai plus besoin des props qui concern les taches pour les faire passer aux enfant */}
                 <TasksList
-                    tasks={tasks}
+                /*  tasks={tasks}
                     toggleTask={toggleTask}
-                    deleteTask={deleteTask}
+                    deleteTask={deleteTask} */
                 />
                 <footer>
                     {/* ce composant reçoit en props la fonction permettant d'ajouter une tache*/}

@@ -1,6 +1,6 @@
 // dans ce fichier je vais creer un entrepot = un store qui va gerer tout
 
-// MISE EN PLACE DE REDUX
+// MISE EN PLACE DE REDUX => CREATION DES SLICES
 
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -22,8 +22,8 @@ const todoSlice = createSlice({
         { id: 2, text: "Ménage !", done: true },
     ],
 
-    // creation du reducer
-    reducer: {
+    // creation du reducer (un reducer regroupe des fonctions qui permette de gerer l'etat)
+    reducers: {
         //action = {type : "ADD_TASK", payload: "faire du sport" }
         addTask: (state, action) => {
             //creation de la nouvelle tache
@@ -36,15 +36,17 @@ const todoSlice = createSlice({
             state.push(newTask);
         },
 
+        // dans action on a ça :
         /*  action ={
             type: "TOGGLE_TASK",
             payload: 20
         } */
 
         // action.payload = 20
-
+        // la fonction toggleTask reçoit le state initiale et l'action a mener
         toggleTask: (state, action) => {
-            //c'est ce qu'il se trouve dans action:  {type: TOGGLE_TASK, payload: 20}
+            // {type: todo/toggleTask, payload:20}
+            //c'est ce qu'il se trouve dans action c'est un objet:  {type: TOGGLE_TASK, payload: 20}
             const task = state.find((t) => t.id === action.payload);
             task.done = !task.done;
         },
@@ -54,9 +56,20 @@ const todoSlice = createSlice({
             setTasks(filteredTasks);
         }; */
         deleteTask: (state, action) => {
-            // {type: "DELETE_TASK", payload:20}
-            /* 1- on filtre l'etat => pour chaque tache tu retourne ou tu gardes uniquement que les taches differentes de de celle qui on l'id que tua as reçu en parametre, 2- */
+            // {type: todo/deleteTask, payload:20}
+            /* 1- on filtre l'etat => pour chaque tache tu retournes ou tu gardes uniquement que les taches differentes
+             de de celle qui on l'id que tu as reçu en parametre, 
+             2- */
             state = state.filter((t) => t.id !== action.payload);
         },
+    },
+});
+
+// creation du STORE = le MAGASIN
+// dans cette constante  que exporte j'appelle la fonction configureStore qui provient de la librairie Redux
+// je met un objet dedans qui est un reducer
+export const store = configureStore({
+    reducer: {
+        todo: todoSlice.reducer,
     },
 });

@@ -11,6 +11,9 @@ const TasksList = (props) => {
         // dans une petite apli ca va mais dans une grosse ça peut devenir pb !
         //c'est pour ça on utilise REDUX !
 
+
+
+        // Je CALL le STORE 
         <>
             {props.tasks.map((t) => (
                 <TaskItem
